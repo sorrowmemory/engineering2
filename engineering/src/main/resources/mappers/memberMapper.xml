@@ -10,6 +10,15 @@
 			#{membEmail},#{membBirth},#{membGender},sysdate,#{membConfirm},
 			#{postNumber},#{detailAddr})
 </insert>
+<select id="memberInfo" parameterType="string" resultType="model.MemberDTO">
+	select MEMB_ID membId, MEMB_NAME membName, MEMB_PW membPw,
+		   MEMB_ADDR membAddr,MEMB_PHONE_NUMBER membPhoneNumber,
+		   MEMB_EMAIL membEmail ,MEMB_BIRTH membBirth, MEMB_GENDER membGender,
+		   MEMB_ENTER_DATE membEnterDate ,MEMB_CONFIRM membConfirm, 
+		   POST_NUMBER postNumber,  DETAIL_ADDR detailAddr
+	from member
+	where memb_id = #{memId}
+</select>
 <select id="memberList" resultType="model.MemberDTO">
 	select MEMB_ID membId, MEMB_NAME membName, MEMB_PW membPw,
 		   MEMB_ADDR membAddr,MEMB_PHONE_NUMBER membPhoneNumber,
